@@ -13,8 +13,10 @@ import com.cs.noteappcheesycode.R
 import com.cs.noteappcheesycode.databinding.FragmentLoginBinding
 import com.cs.noteappcheesycode.models.UserRequest
 import com.cs.noteappcheesycode.utils.NetworkResult
+import com.cs.noteappcheesycode.utils.TokenManager
 import com.cs.noteappcheesycode.viewmodel.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
@@ -23,6 +25,8 @@ class LoginFragment : Fragment() {
     private val binding get() = _binding!!
     private val authViewModel by viewModels<AuthViewModel>()
 
+    @Inject
+    lateinit var tokenManager: TokenManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -82,6 +86,7 @@ class LoginFragment : Fragment() {
             when (it) {
                 is NetworkResult.Success -> {
                     //token
+                    tokenManager.saveToken(it.data!!.token)
                     findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
                 }
                 is NetworkResult.Error -> {

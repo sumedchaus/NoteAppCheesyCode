@@ -13,13 +13,18 @@ import com.cs.noteappcheesycode.R
 import com.cs.noteappcheesycode.databinding.FragmentRegisterBinding
 import com.cs.noteappcheesycode.models.UserRequest
 import com.cs.noteappcheesycode.utils.NetworkResult
+import com.cs.noteappcheesycode.utils.TokenManager
 import com.cs.noteappcheesycode.viewmodel.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
+
+    @Inject
+    lateinit var tokenManager: TokenManager
 
     private val authViewModel by viewModels<AuthViewModel>()
 
@@ -29,6 +34,9 @@ class RegisterFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
+        if(tokenManager.getToken() != null){
+            findNavController().navigate(R.id.action_registerFragment_to_mainFragment)
+        }
         return binding.root
     }
 
@@ -58,9 +66,9 @@ class RegisterFragment : Fragment() {
     }
 
     private fun getUserRequest(): UserRequest {
-        val emailAddress = binding.txtEmail.text.toString();
-        val password = binding.txtPassword.text.toString();
-        val userName = binding.txtUsername.text.toString();
+        val emailAddress = binding.txtEmail.text.toString()
+        val password = binding.txtPassword.text.toString()
+        val userName = binding.txtUsername.text.toString()
         return UserRequest(emailAddress, password, userName)
     }
 
@@ -80,6 +88,7 @@ class RegisterFragment : Fragment() {
             when (it) {
                 is NetworkResult.Success -> {
                     //token
+                    tokenManager.saveToken(it.data!!.token)
                     findNavController().navigate(R.id.action_registerFragment_to_mainFragment)
                 }
                 is NetworkResult.Error -> {

@@ -11,7 +11,6 @@ import com.cs.noteappcheesycode.repository.UserRepository
 import com.cs.noteappcheesycode.utils.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import java.util.regex.Pattern
 import javax.inject.Inject
 
 @HiltViewModel
