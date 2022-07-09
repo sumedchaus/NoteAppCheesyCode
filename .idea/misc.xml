@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/sumedchaus/AllProjects/AndroidStudioProject/NoteAppCheesyCode/app/src/main/res/drawable/note_background.xml" value="0.1785" />
         <entry key="..\:/sumedchaus/AllProjects/AndroidStudioProject/NoteAppCheesyCode/app/src/main/res/font/font.xml" value="0.33055555555555555" />
         <entry key="..\:/sumedchaus/AllProjects/AndroidStudioProject/NoteAppCheesyCode/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/sumedchaus/AllProjects/AndroidStudioProject/NoteAppCheesyCode/app/src/main/res/layout/fragment_login.xml" value="0.33" />
-        <entry key="..\:/sumedchaus/AllProjects/AndroidStudioProject/NoteAppCheesyCode/app/src/main/res/layout/fragment_main.xml" value="0.31302083333333336" />
-        <entry key="..\:/sumedchaus/AllProjects/AndroidStudioProject/NoteAppCheesyCode/app/src/main/res/layout/fragment_note.xml" value="0.31302083333333336" />
+        <entry key="..\:/sumedchaus/AllProjects/AndroidStudioProject/NoteAppCheesyCode/app/src/main/res/layout/fragment_main.xml" value="0.33" />
+        <entry key="..\:/sumedchaus/AllProjects/AndroidStudioProject/NoteAppCheesyCode/app/src/main/res/layout/fragment_note.xml" value="0.18" />
         <entry key="..\:/sumedchaus/AllProjects/AndroidStudioProject/NoteAppCheesyCode/app/src/main/res/layout/fragment_register.xml" value="0.31302083333333336" />
+        <entry key="..\:/sumedchaus/AllProjects/AndroidStudioProject/NoteAppCheesyCode/app/src/main/res/layout/note_item.xml" value="0.25598290598290596" />
       </map>
     </option>
   </component>

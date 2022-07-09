@@ -1,6 +1,8 @@
 package com.cs.noteappcheesycode.models
 
-data class NoteResponse(
+import java.io.Serializable
+
+data class NotesResponse(
     val __v: Int,
     val _id: String,
     val createdAt: String,
@@ -8,4 +10,4 @@ data class NoteResponse(
     val title: String,
     val updatedAt: String,
     val userId: String
-)
+) :Serializable
