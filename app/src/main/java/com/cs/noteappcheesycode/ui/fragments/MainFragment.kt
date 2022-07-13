@@ -17,9 +17,11 @@ import com.cs.noteappcheesycode.databinding.FragmentMainBinding
 import com.cs.noteappcheesycode.models.NotesResponse
 import com.cs.noteappcheesycode.ui.adapters.NoteAdapter
 import com.cs.noteappcheesycode.utils.NetworkResult
+import com.cs.noteappcheesycode.utils.TokenManager
 import com.cs.noteappcheesycode.viewmodel.NotesViewModel
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
@@ -27,6 +29,9 @@ class MainFragment : Fragment() {
     private val binding get() = _binding!!
     private val notesViewModel by viewModels<NotesViewModel>()
     private lateinit var adapter : NoteAdapter
+
+    @Inject
+    lateinit var tokenManager: TokenManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,6 +58,13 @@ class MainFragment : Fragment() {
 
         binding.addNote.setOnClickListener{
             findNavController().navigate(R.id.action_mainFragment_to_noteFragment)
+        }
+
+        binding.btnDelete.setOnClickListener {
+
+            tokenManager.deleteToken()
+            findNavController().navigate(R.id.action_mainFragment_to_loginFragment)
+
         }
     }
 

@@ -1,6 +1,7 @@
 package com.cs.noteappcheesycode.utils
 
 import android.content.Context
+import android.preference.PreferenceManager
 import com.cs.noteappcheesycode.utils.Constants.PREFS_TOKEN_FILE
 import com.cs.noteappcheesycode.utils.Constants.USER_TOKEN
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -20,5 +21,9 @@ class TokenManager @Inject constructor(@ApplicationContext context: Context) {
         return prefs.getString(USER_TOKEN, null)
     }
 
+    fun deleteToken(){
+        prefs.edit().remove(USER_TOKEN).apply()
+//        sp.edit().remove(com.rmit.olms.settings.SettingsUtils.PREF_AUTH_STATE).apply()
+    }
 
 }

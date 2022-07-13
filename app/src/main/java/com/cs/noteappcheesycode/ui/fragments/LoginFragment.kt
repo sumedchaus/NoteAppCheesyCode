@@ -47,8 +47,8 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnSignUp.setOnClickListener {
-            findNavController().popBackStack()
-//            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+//            findNavController().popBackStack()
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
         binding.btnLogin.setOnClickListener {
@@ -94,6 +94,7 @@ class LoginFragment : Fragment() {
                 }
                 is NetworkResult.Loading -> {
                     binding.progressBar.isVisible = true
+
                 }
             }
         })
